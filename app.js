@@ -30,6 +30,7 @@ async function findCountries(continent) {
     // Slice A: call the asynchronous fetch function to get the countries
     const response = await getCountries(continent);
     countries = response.data;
+    // console.log(response);
     displayCountries();
     // Slice C: add continent argument to getCountries function call
     // console log the response object to see all of the nested information returned
@@ -40,6 +41,7 @@ async function findCountries(continent) {
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
+    findCountries(formData.get('continent'));
     // Slice C: Call findCountries with continent from formData
 });
 
